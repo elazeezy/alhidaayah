@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Users, Send, CheckCircle, Loader2 } from "lucide-react";
 import { getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/constants";
 import CTABanner from "@/components/sections/CTABanner";
+import BookNowButton from "@/components/ui/BookNowButton";
 
 const schema = z.object({
   name: z.string().min(2, "Name required"),
@@ -102,9 +103,12 @@ export default function GroupUmrahPage() {
                 For groups under 10, please use our standard individual package inquiry.
                 For very large groups (100+), please contact us directly for bespoke pricing and arrangements.
               </p>
-              <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.group)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 btn-primary text-sm">
-                Discuss Your Group on WhatsApp
-              </a>
+              <div className="flex flex-wrap gap-3 mt-4">
+                <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.group)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 btn-primary text-sm">
+                  Discuss Your Group on WhatsApp
+                </a>
+                <BookNowButton packageSlug="group-umrah" label="Reserve with Deposit" size="sm" className="px-4" />
+              </div>
             </div>
           </div>
 

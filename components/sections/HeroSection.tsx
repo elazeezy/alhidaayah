@@ -83,7 +83,7 @@ export default function HeroSection() {
   const slide = slides[current];
 
   return (
-    <section className="relative h-screen min-h-[580px] max-h-[900px] overflow-hidden">
+    <section className="relative h-[72vh] md:h-screen min-h-[460px] md:min-h-[580px] max-h-[680px] md:max-h-[900px] overflow-hidden">
 
       {/* ── Slide backgrounds ─────────────────────────────────── */}
       <AnimatePresence mode="sync">
@@ -107,8 +107,8 @@ export default function HeroSection() {
       </AnimatePresence>
 
       {/* ── Gradient overlays ─────────────────────────────────── */}
-      <div className="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/65 to-dark/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/80 to-dark/45" />
+      <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-dark/20" />
 
       {/* ── Badges (top right on desktop, top center on mobile) ── */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:top-6 md:right-8 z-10 flex items-center gap-2">

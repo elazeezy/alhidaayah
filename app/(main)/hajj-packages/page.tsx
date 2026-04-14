@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, MessageCircle, Star } from "lucide-react";
+import { Check, MessageCircle, Star, Users } from "lucide-react";
 import { getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/constants";
 import { formatPrice } from "@/lib/utils";
 import CTABanner from "@/components/sections/CTABanner";
+import BookNowButton from "@/components/ui/BookNowButton";
 
 export const metadata: Metadata = {
   title: "Hajj Packages 2026 | Al-Hidaayah Platinum Travels",
@@ -180,6 +181,42 @@ export default function HajjPackagesPage() {
         </div>
       </div>
 
+      {/* Group Hajj CTA */}
+      <div className="container-custom py-12">
+        <div className="bg-gradient-to-r from-dark to-primary/90 rounded-2xl p-8 md:p-10 text-center relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <svg width="100%" height="100%">
+              <defs>
+                <pattern id="group-cta-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                  <circle cx="30" cy="30" r="25" fill="none" stroke="#C9A227" strokeWidth="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#group-cta-pattern)"/>
+            </svg>
+          </div>
+          <div className="relative z-10">
+            <div className="w-14 h-14 bg-gold/20 border border-gold/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Users size={28} className="text-gold" />
+            </div>
+            <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Mosque & Community Groups</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+              Taking Your Group on Hajj?
+            </h2>
+            <p className="text-white/70 text-sm md:text-base max-w-xl mx-auto mb-6">
+              We offer bespoke Group Hajj packages for mosques, community organisations,
+              and families of 10 or more — with exclusive rates, private transport, reserved
+              Mina tents, and a dedicated scholar for your group.
+            </p>
+            <Link
+              href="/group-hajj-packages"
+              className="inline-flex items-center gap-2 bg-gold text-dark font-bold px-7 py-3.5 rounded-xl hover:bg-amber-400 transition-all duration-300 shadow-lg"
+            >
+              View Group Hajj Packages
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <CTABanner />
     </div>
   );
@@ -211,15 +248,14 @@ function HajjCard({ pkg }: { pkg: (typeof hajjPackages.shifting)[0] }) {
             </li>
           ))}
         </ul>
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           <a
             href={getWhatsAppUrl(WHATSAPP_MESSAGES.hajj)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold py-3 rounded-xl text-sm hover:bg-[#1fad53] transition-colors"
+            className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold py-3 rounded-xl text-sm hover:bg-[#1fad53] transition-colors px-3"
           >
             <MessageCircle size={14} />
-            WhatsApp
           </a>
           <Link
             href="/contact"
@@ -227,6 +263,7 @@ function HajjCard({ pkg }: { pkg: (typeof hajjPackages.shifting)[0] }) {
           >
             Get Quote
           </Link>
+          <BookNowButton packageSlug={pkg.slug} className="flex-1 px-3" size="md" />
         </div>
       </div>
     </div>

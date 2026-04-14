@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Phone, Mail, Clock, Send, CheckCircle, Loader2, MessageCircle } from "lucide-react";
+import { Phone, Mail, Clock, Send, CheckCircle, Loader2, MessageCircle, MapPin } from "lucide-react";
 import { SITE_CONFIG, getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/constants";
 
 const schema = z.object({
@@ -112,6 +112,34 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
+
+            {/* Office Address */}
+            <div className="bg-white rounded-2xl p-6 shadow-card border border-gray-100">
+              <div className="flex items-center gap-3 mb-2">
+                <MapPin size={20} className="text-primary" />
+                <span className="font-heading font-bold text-dark text-lg">Our Office</span>
+              </div>
+              <p className="text-dark font-semibold">{SITE_CONFIG.address}</p>
+              <p className="text-gray-400 text-sm mt-1">Visit us in person — appointments welcome</p>
+            </div>
+
+            {/* YouTube */}
+            <a
+              href={SITE_CONFIG.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-2xl p-6 shadow-card border border-gray-100 hover:border-[#FF0000]/40 transition-colors group"
+            >
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-5 h-5 text-[#FF0000]">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </div>
+                <span className="font-heading font-bold text-dark text-lg group-hover:text-[#FF0000] transition-colors">YouTube</span>
+              </div>
+              <p className="text-gray-500 text-sm">Watch our Hajj &amp; Umrah guides and testimonials</p>
+            </a>
           </div>
 
           {/* Right: Contact Form */}

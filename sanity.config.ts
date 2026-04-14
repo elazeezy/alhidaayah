@@ -8,7 +8,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
 
 export default defineConfig({
   basePath: "/studio",
-  projectId: projectId || "your-project-id",
+  projectId: projectId || "g7z4q7z1",
   dataset: dataset || "production",
   name: "al-hidaayah-studio",
   title: "Al-Hidaayah Platinum Travels — CMS",

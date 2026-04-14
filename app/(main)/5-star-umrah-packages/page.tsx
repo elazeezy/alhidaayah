@@ -4,6 +4,7 @@ import { Check, Star, MessageCircle } from "lucide-react";
 import { PACKAGES_DATA, getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/constants";
 import { formatPrice } from "@/lib/utils";
 import CTABanner from "@/components/sections/CTABanner";
+import BookNowButton from "@/components/ui/BookNowButton";
 
 export const metadata: Metadata = {
   title: "5-Star Umrah Packages 2026 | Al-Hidaayah Platinum Travels",
@@ -72,11 +73,12 @@ export default function FiveStarPage() {
                     </li>
                   ))}
                 </ul>
-                <div className="flex gap-3">
-                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.premiumPackage)} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold py-2.5 rounded-xl text-sm hover:bg-[#1fad53] transition-colors">
-                    <MessageCircle size={14} />WhatsApp
+                <div className="flex gap-2">
+                  <a href={getWhatsAppUrl(WHATSAPP_MESSAGES.premiumPackage)} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 bg-[#25D366] text-white font-semibold py-2.5 rounded-xl text-sm hover:bg-[#1fad53] transition-colors px-3">
+                    <MessageCircle size={13} />
                   </a>
                   <Link href={`/packages/${pkg.slug}`} className="flex-1 btn-primary text-sm py-2.5">View Details</Link>
+                  <BookNowButton packageSlug={pkg.slug} className="flex-1 px-3" />
                 </div>
               </div>
             </div>

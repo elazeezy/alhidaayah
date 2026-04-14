@@ -10,6 +10,8 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import BlogPreviewSection from "@/components/sections/BlogPreviewSection";
 import CTABanner from "@/components/sections/CTABanner";
+import QuickQuoteSection from "@/components/sections/QuickQuoteSection";
+import TransparencyStrip from "@/components/sections/TransparencyStrip";
 
 export const metadata: Metadata = {
   title: "Al-Hidaayah Platinum Travels | Premium Umrah & Hajj Packages from the UK",
@@ -62,8 +64,10 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <HeroSection />
+      <QuickQuoteSection />
       <WhyChooseUs />
       <PackagesSection />
+      <TransparencyStrip />
       <PriceEstimator />
       <DepartureCitiesSection />
       <AirlinesCarousel />

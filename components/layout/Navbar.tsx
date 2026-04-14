@@ -23,7 +23,14 @@ const navLinks = [
       { label: "Group Umrah", href: "/group-umrah-packages" },
     ],
   },
-  { label: "Hajj Packages", href: "/hajj-packages" },
+  {
+    label: "Hajj Packages",
+    href: "/hajj-packages",
+    children: [
+      { label: "All Hajj Packages", href: "/hajj-packages" },
+      { label: "Group Hajj", href: "/group-hajj-packages" },
+    ],
+  },
   { label: "Hotels", href: "/hotels" },
   {
     label: "Learn",

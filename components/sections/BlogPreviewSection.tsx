@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { fadeUp, cardReveal, staggerGrid, viewport } from "@/lib/animations";
 
 const blogPosts = [
   {
@@ -42,18 +43,14 @@ export default function BlogPreviewSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}
               className="section-subtitle mb-3"
             >
               Islamic Travel Blog
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}
+              transition={{ duration: 0.9, delay: 0.1 }}
               className="section-title"
             >
               Guides & Insights for{" "}
@@ -66,14 +63,14 @@ export default function BlogPreviewSection() {
         </div>
 
         {/* Blog Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {blogPosts.map((post, index) => (
+        <motion.div
+          variants={staggerGrid} initial="hidden" whileInView="visible" viewport={viewport}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {blogPosts.map((post) => (
             <motion.article
               key={post.slug}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
+              variants={cardReveal}
               className="group bg-white rounded-2xl overflow-hidden shadow-card card-hover border border-gray-100"
             >
               {/* Image Placeholder */}
@@ -115,7 +112,7 @@ export default function BlogPreviewSection() {
               </div>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

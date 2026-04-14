@@ -6,6 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants";
+import { fadeUp, viewport } from "@/lib/animations";
 
 export default function TestimonialsSection() {
   const autoplayRef = useRef(Autoplay({ delay: 4500, stopOnInteraction: false }));
@@ -20,18 +21,14 @@ export default function TestimonialsSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}
             className="section-subtitle mb-3"
           >
             Pilgrim Stories
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}
+            transition={{ duration: 0.9, delay: 0.1 }}
             className="section-title mb-4"
           >
             What Our Pilgrims{" "}

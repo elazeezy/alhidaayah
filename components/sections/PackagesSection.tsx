@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Check, Star, Plane, MessageCircle } from "lucide-react";
 import { PACKAGES_DATA, getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/constants";
 import { formatPrice } from "@/lib/utils";
+import { fadeUp, fadeUpSlow, cardReveal, staggerGrid, viewport } from "@/lib/animations";
 
 const tabs = [
   { label: "All Packages", value: "all" },
@@ -26,28 +27,22 @@ export default function PackagesSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}
             className="section-subtitle mb-3"
           >
             Our Packages
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}
+            transition={{ duration: 0.9, delay: 0.1 }}
             className="section-title mb-4"
           >
             Umrah Packages for{" "}
             <span className="text-gradient-gold">2026</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            variants={fadeUpSlow} initial="hidden" whileInView="visible" viewport={viewport}
+            transition={{ duration: 1.1, delay: 0.2 }}
             className="text-gray-500 max-w-2xl mx-auto"
           >
             Carefully curated packages for every pilgrim. From comfortable 3-star stays
@@ -75,14 +70,14 @@ export default function PackagesSection() {
         </div>
 
         {/* Package Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <motion.div
+          variants={staggerGrid} initial="hidden" whileInView="visible" viewport={viewport}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+        >
           {filtered.map((pkg, index) => (
             <motion.div
               key={pkg.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
+              variants={cardReveal}
               className="group bg-white rounded-2xl overflow-hidden shadow-card card-hover border border-gray-100 flex flex-col"
             >
               {/* Card Header */}
@@ -174,7 +169,7 @@ export default function PackagesSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* View All CTA */}
         <div className="text-center mt-12">

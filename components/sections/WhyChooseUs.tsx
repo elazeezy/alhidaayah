@@ -1,27 +1,15 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { ShieldCheck, Star, Heart, Headphones } from "lucide-react";
 import { WHY_CHOOSE_US } from "@/lib/constants";
+import { fadeUp, fadeUpSlow, cardReveal, staggerGrid, viewport } from "@/lib/animations";
 
 const icons = {
   "shield-check": ShieldCheck,
   "star": Star,
   "heart": Heart,
   "headphones": Headphones,
-};
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 export default function WhyChooseUs() {
@@ -31,28 +19,22 @@ export default function WhyChooseUs() {
         {/* Header */}
         <div className="text-center mb-10 md:mb-16">
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}
             className="section-subtitle mb-3"
           >
             Why Choose Us
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}
+            transition={{ duration: 0.9, delay: 0.1 }}
             className="section-title mb-4"
           >
             Your Journey Deserves the{" "}
             <span className="text-gradient-gold">Very Best</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            variants={fadeUpSlow} initial="hidden" whileInView="visible" viewport={viewport}
+            transition={{ duration: 1.1, delay: 0.2 }}
             className="text-gray-500 max-w-2xl mx-auto"
           >
             At Al-Hidaayah Platinum Travels, we understand the profound importance of your pilgrimage.
@@ -62,10 +44,10 @@ export default function WhyChooseUs() {
 
         {/* Cards */}
         <motion.div
-          variants={containerVariants}
+          variants={staggerGrid}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={viewport}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {WHY_CHOOSE_US.map((item) => {
@@ -73,7 +55,7 @@ export default function WhyChooseUs() {
             return (
               <motion.div
                 key={item.title}
-                variants={cardVariants}
+                variants={cardReveal}
                 className="group p-5 md:p-8 rounded-2xl border border-gray-100 bg-white card-hover text-center"
               >
                 <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all duration-300">
@@ -101,10 +83,10 @@ export default function WhyChooseUs() {
 
         {/* Stats Row */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 1.06 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
+          transition={{ duration: 0.85, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="mt-10 md:mt-16 bg-gradient-to-r from-primary to-primary-700 rounded-2xl p-6 md:p-12"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 text-center">

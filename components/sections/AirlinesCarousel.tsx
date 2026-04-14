@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 
 const airlines = [
+  { name: "EgyptAir", code: "MS" },
+  { name: "Qatar Airways", code: "QR" },
+  { name: "British Airways", code: "BA" },
   { name: "Saudia", code: "SV" },
   { name: "Emirates", code: "EK" },
   { name: "Etihad Airways", code: "EY" },
   { name: "Turkish Airlines", code: "TK" },
-  { name: "Qatar Airways", code: "QR" },
-  { name: "British Airways", code: "BA" },
   { name: "Air Arabia", code: "G9" },
-  { name: "Flydubai", code: "FZ" },
 ];
 
 export default function AirlinesCarousel() {
@@ -18,9 +18,10 @@ export default function AirlinesCarousel() {
     <section className="py-12 bg-white border-y border-gray-100 overflow-hidden">
       <div className="container-custom mb-6">
         <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest"
         >
           Our Airline Partners

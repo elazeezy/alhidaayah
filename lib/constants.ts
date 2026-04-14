@@ -8,7 +8,8 @@ export const SITE_CONFIG = {
   email: "info@alhidaayahplatinumtravels.co.uk",
   instagram: "@alhidayah104",
   instagramUrl: "https://instagram.com/alhidayah104",
-  address: "United Kingdom",
+  youtube: "https://www.youtube.com/@Al-Hidayah104",
+  address: "Abbey Street, Derby, UK",
   openingHours: "Mon–Sat: 9:00am – 6:00pm | Sun: 10:00am – 4:00pm",
   url: "https://www.alhidaayahplatinumtravels.co.uk",
 };
@@ -22,6 +23,7 @@ export const WHATSAPP_MESSAGES = {
   group: "Assalamu Alaikum! I'm interested in arranging a group Umrah booking. Could you please get in touch?",
   ramadan: "Assalamu Alaikum! I'm interested in your Ramadan Umrah packages. Could you please provide more information?",
   quote: "Assalamu Alaikum! I'd like to get a free quote for an Umrah package. Could you please help me?",
+  groupHajj: "Assalamu Alaikum! I'm interested in arranging a group Hajj booking for our community/mosque. Could you please provide more information about your group Hajj packages?",
 };
 
 export const getWhatsAppUrl = (message: string) =>
@@ -224,19 +226,25 @@ export const HOW_IT_WORKS = [
   {
     step: 1,
     title: "Choose Your Package",
-    description: "Browse our carefully curated Umrah and Hajj packages. Filter by star rating, duration, departure city, and travel period to find your perfect journey.",
+    description: "Browse our Umrah and Hajj packages. Filter by star rating, duration, departure city, and budget to find your perfect blessed journey.",
     icon: "search",
   },
   {
     step: 2,
-    title: "Make Your Inquiry",
-    description: "Contact us via WhatsApp, our online form, or call us directly. Our knowledgeable team will guide you through every detail and answer all your questions.",
-    icon: "message-circle",
+    title: "Pay Your Deposit",
+    description: "Secure your spot instantly with a small online deposit. We accept all major cards worldwide — fast, safe, and fully encrypted.",
+    icon: "credit-card",
   },
   {
     step: 3,
+    title: "We Handle Everything",
+    description: "Our team processes your visa, coordinates your flights, arranges your hotel, and prepares a full personalised itinerary for your journey.",
+    icon: "shield",
+  },
+  {
+    step: 4,
     title: "Travel with Peace",
-    description: "Leave all the logistics to us. From airport assistance and visa guidance to hotel check-in and Ziyarah tours — simply focus on your worship.",
+    description: "Leave all the logistics to us. From airport assistance to Ziyarah tours — simply arrive and focus entirely on your worship.",
     icon: "plane",
   },
 ];

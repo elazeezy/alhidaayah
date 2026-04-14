@@ -19,9 +19,10 @@ export default function CTABanner() {
 
       <div className="container-custom relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           {/* Arabic Bismillah */}
           <p className="text-gold/60 text-xl md:text-2xl mb-3 md:mb-4 font-arabic tracking-widest">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
